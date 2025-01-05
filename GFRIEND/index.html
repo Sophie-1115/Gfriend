@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>GFRIEND 여자친구介紹</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>  
+        function switchContent(contentId) {
+    // 隱藏第一層表單的所有內容區塊
+    document.querySelectorAll('.content').forEach(function (element) {
+      element.classList.remove('active');
+    });
+    // 顯示選擇的內容區塊
+    document.getElementById(contentId).classList.add('active');
+  }
+
+  function switchSubContent(subContentId) {
+    // 隱藏第二層表單的所有內容
+    document.querySelectorAll('.sub-content').forEach(function (element) {
+      element.classList.remove('sub-active');
+    });
+    // 顯示選擇的內容區塊
+    document.getElementById(subContentId).classList.add('sub-active');}
+
+    function switchThrContent(thrContentId) {
+    // 隱藏第二層表單的所有內容
+    document.querySelectorAll('.thr-content').forEach(function (element) {
+      element.classList.remove('thr-active');
+    });
+    // 顯示選擇的內容區塊
+    document.getElementById(thrContentId).classList.add('thr-active');}
+    </script>
+    
+    <style>
+    * { /*顯示補正*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    } 
+
+    /* 隱藏所有內容區塊 */
+    .content {
+        display: none;
+    }
+        
+    /* 當內容區塊被選擇時，顯示出來 */
+    .content.active {
+        display: block;
+    }
+    #home h2 ,p{
+        text-align: center;
+    } 
+
+    html, body {
+    height: 100%; /* 讓整個頁面高度為 100% */
+    margin: 0;
+    }
+
+    main{
+      min-height: calc(100% - 140px); /*減去footer高度*/
+    }
+
+    /*--首頁、NAV設定--*/
+    .menu {     /*表頭背景、位置、長寬*/
+    background: linear-gradient(90deg, #00ABC0 0%, #5F4B8B 100%);
+    border-bottom: #393939 solid 1px;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0 0 0;
+    position: fixed; /*表頭凍結*/
+    width: 100%;
+    z-index: 2000;
+    }
+
+    .menu ul {  /*文字橫向展開*/
+    list-style: none;
+    font-weight: bolder;
+    display: flex;
+    }
+
+    .menu ul li { /*設定表頭間距*/
+    margin: 0 30px;
+    position: relative;
+    }
+
+    .menu ul li a {/*文字顏色設定*/
+    color: rgb(32, 23, 23);
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ;
+    }
+
+    .menu ul li a:hover { /*文字顏色碰觸設定*/
+    color: #48D1CC; 
+    background-color: #5F4B8B;
+    border-radius: 15px;
+    }
+       /*隱藏選單*/
+    .menu ul li ul {
+    visibility: hidden;
+    }
+
+    .menu ul li:hover ul{
+    visibility: visible;
+    }
+    
+    .dropdown-menu { /*下拉選單設定*/
+      all: unset;
+      display: none;
+      position: absolute;/*在父級底下的絕對位置*/
+      top: 100%; /*相對於父級*/
+      background-color: #fff;
+      border: 1px solid #50e9f1;
+      border-radius: 15px;
+      padding: 0;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    
+    /*輪播圖片大小設定*/
+    .carousel-inner{
+        padding: 10px;
+    }
+
+    #bg{
+    background: linear-gradient(90deg, #00ABC0 0%, #5F4B8B 100%);
+    }
+
+    .member {
+        /*vertical-align: middle;*/
+        display: flex;
+        flex-direction: column;
+        margin-left: 80px;
+        gap: 20px;/*間隔寬度*/
+        
+    }
+
+    .member h1{
+        font-weight: bolder;
+        padding-top: 80px;
+    }
+
+    .member p {
+        color: #000;
+        font-weight: bolder;
+        text-align: left;
+        margin-left: 30px;
+    }
+
+    .member img {
+        width: 200px;
+        margin-left: 150px;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        float: left;
+    }
+
+    .member img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s, box-shadow 0.3s; /*動畫屬性*/
+    }
+
+    .member .intro{
+      display: inline-block; 
+      width: auto;
+      position: relative;
+      top: 5em;
+      color: #fff;
+    }
+
+    .now{
+      background-color: #6388c4; /* Ultra Violet */
+      display: flex;
+      justify-content: center;
+      padding: 15px 0 0 0;
+      position: fixed; /*表頭凍結*/
+      top: 58px;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .now ul {  /*文字橫向展開*/
+    list-style: none;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    gap: 20px;
+    }
+
+    .now ul li { /*設定表頭間距*/
+    margin: 0 15px;
+    position: relative;
+    }
+
+    .now ul li a {/*文字顏色設定*/
+    color: rgb(32, 23, 23);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    }
+
+    .now ul li a:hover { /*文字顏色碰觸設定*/
+    background-color: #6388c4;
+    color: white;
+    }
+
+    .sub-content {
+    display: none;
+  }
+
+  /* 當第二層內容區塊被選擇時，顯示出來 */
+  .sub-content.sub-active {
+    display: block;
+  }
+
+  .bg{
+    background: repeating-radial-gradient(circle,#6388c4,#6A5ACD );
+    height: 100vh;
+  }
+
+  /*現況照片位置*/
+  .location{
+    position: relative;
+    margin-left:130px;
+  }
+
+  .location img{
+    border-radius: 500px;
+    width: 500px;
+    border: double 5px #222222 ;
+  }
+  .location img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s; /*動畫屬性*/
+  }
+
+  .location1{
+    position: relative;
+    margin-left: 130px;
+  }
+
+  .location1 img{
+    border-radius: 500px;
+    width: 200px;
+    border: double 5px #222222 ;
+
+  }
+  .location1 img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s; /*動畫屬性*/
+  }
+
+  .location p .location1 p{
+    background-color: #5F4B8B;
+    top: -150px;
+  }
+
+  .thr-content {
+    display: none;
+  }
+
+  /* 當第二層內容區塊被選擇時，顯示出來 */
+  .thr-content.thr-active {
+    display: block;
+  }
+
+  .Kalbum{
+    padding: 100px 150px 0;
+    }
+
+  .Kalbum h1{
+    color: #2d2c2e;
+    background-color: rgba(204, 204, 204,0.5) ;
+    border-radius: 15px;
+    padding-left: 3px;
+  }
+
+  .Kalbum img{
+    width: 200px;
+    margin-left: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: double #ccc 10px;
+    border-radius: 10px;
+  }
+
+  .Kalbum img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s; /*動畫屬性*/
+  }
+
+  a {
+    color: inherit; /* 繼承父元素顏色 */
+    text-decoration: none; /* 移除下劃線 */
+  }
+  .Kalbum a{
+    text-decoration:none;
+    color: rgb(0, 0, 0);
+  }
+  .Kalbum a:link{/*未被點擊過*/
+    color: rgb(0, 0, 0);
+  }
+  .Kalbum a:visited{/*已被點擊*/
+    color: rgba(106, 90, 205,0.3);
+  }
+  .Kalbum a:hover {/*移到連結上方*/
+    background-color: rgba(69, 69, 69,0.1);
+    border-radius: 15px;
+  }
+  .Kalbum a:active{/*被點擊時*/
+    color: #F0EEE9;
+  }
+
+  .jalbum{
+    padding: 100px 150px 0;
+    background: linear-gradient(to bottom left, #F0EEE9 0%,#00ABC0 85%, #5F4B8B 100%); height: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  .jalbum h2{
+    color: #2d2c2e;
+    background-color: rgba(204, 204, 204,0.5) ;
+    border-radius: 30px;
+  }
+
+  .jalbum img{
+    width: 200px;
+    margin-left: 65px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: double #ccc 10px;
+    border-radius: 10px;
+  }
+
+  .jalbum img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s; /*動畫屬性*/
+  }
+
+  footer{
+   /* background: linear-gradient(180deg, #F0EEE9 0%, #5F4B8B 100%);*/
+    bottom: 0;
+    height: 140px;
+    width: 100%;
+    background-color: #F0EEE9; /*灰藍色背景 */
+    color: #F5F5F5; /* 白色文字 */
+    text-align: center;
+    list-style: none;
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    color: rgb(32, 23, 23);
+    transition: color 0.3s ;
+  }
+  footer:hover { /*文字顏色碰觸設定*/
+    color: #48D1CC; 
+    background-color: #6A5ACD;
+  }
+footer a{
+  color: rgb(32, 23, 23);
+  transition: color 0.3s ;
+}
+  footer a:hover{
+    color: #454545; 
+    background-color: #F0EEE9;
+    border-radius:0 30px 0 30px ;
+    width: 60px;
+    height: 25px;
+  } 
+  
+  .album{
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+  }
+ 
+  .link img{
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+  }
+
+  .link img:hover{
+    filter: grayscale(0%);
+  }
+    </style>
+</head>
+
+<body>    
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="#index" onclick="switchContent('index')">首頁內容</a></li>
+                <li><a href="#members" onclick="switchContent('members')">成員簡介</a></li>
+                <li><a href="#about" onclick="switchContent('about')">現況</a></li>
+                <li><a href="#korean-albums" onclick="switchContent('korean-albums')">韓文專輯</a></li>
+
+                <li class="dropdown">
+                    <a href="#japanese-albums" >日文專輯</a>
+                    <ul class="dropdown-menu">
+                    <li><a href="#2018" onclick="switchContent('twet')">2018</a></li>
+                    <li><a href="#2019" onclick="switchContent('tynt')">2019</a></li>
+                    <li><a href="#2020" onclick="switchContent('tyty')">2020</a></li>
+                </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+   
+    <main>
+       <!--首頁-->
+    <div id="index" class="content active "> 
+        <!--輪播設定-->
+        <div id="myCarousel" class="carousel slide " data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" ></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5" aria-label="Slide 5"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="6" aria-label="Slide 6"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="7" aria-label="Slide 7"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="8" aria-label="Slide 8"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="9" aria-label="Slide 9"></button>
+              <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="10" aria-label="Slide 10"></button>
+            </div>
+            <div class="carousel-inner" style="height: 100vh;">
+              <div class="carousel-item active">
+                <img src="image/index_new.jpg" class="d-block w-100" alt="新專輯" title="新專輯公告">
+              </div>
+              <div class="carousel-item">
+                <img src="image/index_glassbead02.jpg" class="d-block w-100" alt="玻璃珠" title="玻璃珠-迷你一輯">
+              </div>
+              <div class="carousel-item">
+                <img src="image/index_megustastu.jpg" class="d-block w-100" alt="Me gustas tu" title="Me gustas tu-迷你二輯">
+              </div>
+              <div class="carousel-item">
+                <img src="image/index_rough02.jpg" class="d-block w-100" alt="Rough" title="Rough-迷你二輯">
+              </div>
+              <div class="carousel-item">
+                <img src="image/index_navillera02.png" class="d-block w-100" alt="navillera" title="navillera-正規一輯">
+              </div>
+              <div class="carousel-item">
+                <img src="image/index_fingertip02.jpg"  class="d-block w-100" alt="fingertip" title="fingertip-迷你三輯">
+              </div>
+              <div class="carousel-item">
+                <img src="image/index_lovewhisper.jpg" class="d-block w-100" alt="lovewhisper" title="lovewhisper-迷你四輯">
+              </div>
+              <div class="carousel-item">
+                <img src="image/index_summerrain02.jpg" class="d-block w-100" alt="fingertip" title="summerrain-迷你五輯repackage">
+              </div>
+              <div class="carousel-item">
+                <img src="image/index_tftmn.02jpg.jpg" class="d-block w-100" alt="tftmn" title="tftmn-迷你六輯">
+              </div>
+              <div class="carousel-item">
+                <img src="image/index_sunny.jpeg" class="d-block w-100" alt="sunny" title="sunny-夏日專輯">
+              </div>
+              <div class="carousel-item">
+                <img src="image/index_sunrise.jpeg" class="d-block w-100" alt="sunrise" title="sunrise-正規二輯">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+            
+      </div>
+
+    <!--成員介紹-->
+    <div id="members" class="content">
+        <div id="bg">
+        <span class="member">
+        <h1>成員介紹</h1>
+        <p>成團故事：<br>Source Music公司於2015年所推出的六人女子組合
+            ，於2015年底的各頒獎典禮上拿下大部分女子新人獎。<br>
+            2016年1月25日推出第三張迷你專輯《Snowflake》
+            ，並公佈官方歌迷粉絲名為「Buddy」，除了拿下出道後音樂節目的初一位
+            ，同年拿一位的次數更創下當時的紀錄。</p>
+        <div>
+        <img src="image/members_sowon.jpg" alt="SOWON">
+        <p class="intro">
+        隊長、副唱：Sowon（소원　所願）<br><br>
+        5歲時開始練習生生活，曾為DSP媒體的練習生，由於出道日程一直被推遲，
+        最終選擇離開。<br>憑藉Rap通過了SOURCE MUSIC的試鏡，於同年中期轉至旗下，
+        接受了1年6個月的訓練後透過여자친구成功出道。</p>
+        </div>
+
+        <div>
+        <img src="image/members_yerin02.jpg" alt="YERIN">
+        <p class="intro">
+        領舞、副唱：Yerin（예린　睿隣）<br><br>
+        出道前曾在Fantagio娛樂和Cube娛樂擔當練習生。<br>
+        2014年10月30日，SOURCE MUSIC官網公開資料與單人照，2015年1月15日以GFRIEND的成員身分出道。</p>
+        </div>
+        <div>
+        <img src="image/members_eunha.jpg" alt="EUNHA">
+        <p class="intro">
+        領唱：Eunha（은하　銀河）<br><br>
+        從小就喜歡唱歌及有個成為歌手的夢想，因此她參與了舞蹈隊並在那時與SinB相識。<br>
+        後因個人原因恢復了一段時間的校園生活。升上高中後收到了試鏡提議，在2015年1月15日，作為GFRIEND領唱擔當出道</p>
+        </div>
+         <div>
+        <img src="image/members_yuju02.png" alt="YUJU">
+        <p class="intro">
+        主唱：Yuju（유주　裕株）<br><br>
+        國一在沒有學唱歌的情況下，參加歌唱比賽獲得鼓勵獎，從此懷揣著成為歌手的夢想。<br>
+        2011年進入Cube娛樂成為練習生，2012年轉至LOEN娛樂參加《京畿道高陽市青少年綜合藝術節》歌唱比賽，獲得最優秀獎。<br>
+        2013年離開LOEN娛樂，同年參加全國歌唱大賽，並憑藉參賽影片通過SOURCE MUSIC的試鏡，在2014年初期成功轉至SOURCE MUSIC旗下。</p>
+        </div>
+        <div>
+        <img src="image/members_sinb.jpg" alt="SINB">
+        <p class="intro">
+        主舞、副唱：SinB（신비　信飛）<br><br>
+        受父親影響，曾夢想成為國際律師或歌手。<br>
+        小學時就準備出道，但因路途艱難一度想放棄成為歌手的夢想，六年級在父親說服下，及對成為歌手更感興趣而選擇繼續練習。
+        </p>
+        </div>
+        <div>
+        <img src="image/members_umji.jpg" alt="UMJI">
+        <p class="intro">
+        副唱、忙內：Umji（엄지　嚴智）<br><br>
+        在街上剛好被SOURCE MUSIC的CEO邀請參與公司的甄選，<br>
+        最後成為該公司的練習生，訓練時長約一年。
+        </p>
+        </div>
+        </span>
+    </div>
+    </div>
+
+    <!--近況-->
+
+    <div id="about" class="content sub-active">
+      <div class="bg">
+      <div class="now">
+        <ul>
+          <li><a href="#about_viviz" onclick="switchSubContent('viviz-content')">VIVIZ</a></li>
+          <li><a href="#about_sowon" onclick="switchSubContent('sowon-content')">Sowon</a></li>
+          <li><a href="#about_yerin" onclick="switchSubContent('yerin-content')">Yerin</a></li>
+          <li><a href="#about_yuju" onclick="switchSubContent('yuju-content')">Yuju</a></li>
+        </ul>
+      </div>
+
+      <!-- 第二層內容區塊 -->
+      <div id="viviz-content" class="sub-content sub-active">
+        <div class="location"><br>
+        <br><br><br><br><br><h1>VIVIZ</h1>
+        <img src="image/about_viviz.jpg"  alt="viviz" >
+        <div style="position: relative; top: 5em; display:inline-block;  padding-left: 30px;">
+        <p style="text-align: left; color: #ccc; font-weight: bolder;">
+          解約後Eunha、SinB、Umji三人在2021年10月6日與BPM（Big Planet Made）娛樂簽署專屬合約
+          <br>，並以團名VIVIZ出道。<br><br>VIVIZ是「VIVId dayZ」的縮寫
+          ，是由充滿鮮明且強烈意義的「VIVID」與意味著每一天的「days（z）」<br>合成的詞
+          ，寓意為「無論何時都能成為堂堂正正，且向世人自豪地表達和展現獨特色彩的藝術家」<br><br>
+          同時又取自成員們名字的音節，分別是Eunha原名丁恩妃（정은비）的「비」
+          ，<br>SinB原名黃恩妃（황은비）的「비」和Umji藝名的「지」，更加具有意義性。
+        </p></div>
+     <!-- <img src="image/mini1Beam Of Prism.png" alt="Beam Of Prism" style="width: 350px; border-radius: 15px; border-style:none; padding-top: 30px;">-->
+        </div>
+      </div>
+
+      <div id="sowon-content" class="sub-content">
+        <div class="location1"><br>
+        <br><br><br><br><br><h1>Sowon</h1>
+        <img src="image/about_sowon.jpg"  alt="sowon" >
+        <div style="position: relative; top: 4em; display:inline-block;  padding-left: 30px; line-height: 2;">
+        <p style="text-align: left; color: #ccc; font-weight: bolder;">
+          2021年8月2日，與IOK Company簽訂專屬契約，並成為該公司的旗下藝人。
+        <br>把藝名更改回本名進行演藝活動；擁有無限可能性的金韶情，以演員的身份盡情發揮和展現自己的才能。
+        <br>9月30日，確定主演CINE-RAMA《毛骨悚然的同居》並與IKON的粲右搭檔。
+        <br>2023年8月1日，IOK Company一年契約期滿。11月15日，OUI娛樂宣佈簽訂專屬契約，以新藝名金所願開展演員活動。
+        <br>2024年1月，參與電影《小金剛新的開始》角色配音。</p>
+        </div>  
+        </div>
+      </div>
+
+      <div id="yerin-content" class="sub-content">
+        <div class="location1"><br>
+          <br><br><br><br><br> <h1>Yerin</h1>
+        <img src="image/about_yerin.png"  alt="yerin" >
+        <div style="position: relative; top: 4em; display:inline-block;  padding-left: 30px; line-height: 2;">
+        <p style="text-align: left; color: #ccc; font-weight: bolder;">
+          2021年6月17日與Sublime Artist Agency簽約，預計當年12月以網絡劇演員出道。
+        <br>2022年5月18日，推出首張個人迷你專輯《ARIA》，正式SOLO出道。
+        <br>2023年3月31日，與Sublime合約期滿。4月17日，與Bill娛樂簽約。
+        <br>8月23日，以第二張迷你專輯《Ready, Set, LOVE》回歸。
+        <br>2024年9月4日，以第三張迷你專輯《Rewrite》回歸。
+        </p></div>
+        </div>
+      </div>
+
+      <div id="yuju-content" class="sub-content">
+        <div class="location1"><br>
+          <br><br><br><br><br><h1>Yuju</h1>
+        <img src="image/about_yuju.jpg"  alt="yuju" >
+        <div style="position: relative; top: 4em; display:inline-block;  padding-left: 30px; line-height: 2;">
+        <p style="text-align: left; color: #ccc; font-weight: bolder;">
+          2021年9月1日，與KONNECT娛樂簽訂專屬契約。
+          <br>於2022年1月18日推出首張個人迷你專輯《REC.》，正式SOLO出道。
+          <br>7月28日推出個人出道後首張數位單曲《이브닝》（Evening）。
+          <br>2023年3月7日，以迷你二輯《[O]》回歸，9月20日，推出第二張數位單曲《따라랏 (DALALA)》。
+        </p></div>
+      </div>
+      </div>
+  </div>
+  </div>
+
+    <!--韓文專輯-->
+    <div id="korean-albums" class="content sub-active">
+      <div class="now"  >
+        <ul>
+          <li><a href="#2015" onclick="switchThrContent('2015')">2015</a></li>
+          <li><a href="#2016" onclick="switchThrContent('2016')">2016</a></li>
+          <li><a href="#2017" onclick="switchThrContent('2017')">2017</a></li>
+          <li><a href="#2018" onclick="switchThrContent('2018')">2018</a></li>
+          <li><a href="#2019" onclick="switchThrContent('2019')">2019</a></li>
+          <li><a href="#2020" onclick="switchThrContent('2020')">2020</a></li>
+        </ul>
+      </div>
+      <div style=" background: linear-gradient(to bottom left, #F0EEE9 0%,#00ABC0 85%, #5F4B8B 100%); height: 100%;">
+     <div class="Kalbum">
+      <div id="2015" class="thr-content thr-active"><br>
+        <h1 style="width: 300px;">1st Mini Album</h1>
+        <h3 style="padding-left: 23px;">SEASON OF GLASS</h3>
+        <img src="image/mini01.png" alt="mini01">
+        <span style="margin-left: 30px; position: relative; top: -65px; ">
+          主打歌：GlassBead（유리구슬）<br><span style="position: relative; left: 285px; top: -80px; ">
+          收錄曲：<br>
+          <a href="https://www.youtube.com/watch?v=KWB8hosaAQE" target="_blank">Intro（Season of Glass）</a><br>
+          <a href="https://www.youtube.com/watch?v=NbDwWBdE4GE" target="_blank">Neverland</a><br>
+          <a href="https://www.youtube.com/watch?v=7BVjk_iz4XY" target="_blank">하얀마음（White）</a><br>
+          <a href="https://www.youtube.com/watch?v=z5i0n7b5kP4" target="_blank">Glass Bead（Inst.）</a><br> </span>
+          <iframe width="280" height="157.5" src="https://www.youtube.com/embed/GU7icQFVzHo?si=H3ntNv43urMqJyAn" 
+        style="position: relative; top: -230px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+        </span>
+      
+        <p style="border-top: dashed #393939 3px; margin-top: -250px;">
+        <h1 style="width: 310px;">2nd Mini Album</h1>
+        <h3 style="padding-left: 65px;">FLOWER BUD</h3>
+        <img src="image/mini02.png" alt="mini02" >
+        <span style="margin-left: 30px; position: relative; top: -65px; ">
+          主打歌：Me Gustas Tu（오늘부터 우리는）<br><span style="position: relative; left: 285px; top: -80px;">
+          收錄曲：<br>
+          <a href="https://www.youtube.com/watch?v=_Anb0dLEvIY" target="_blank">Intro（Flower Bud）</a><br>
+          <a href="https://www.youtube.com/watch?v=breVcXoK3EY" target="_blank">하늘아래서（Under the Sky）</a><br>
+          <a href="https://www.youtube.com/watch?v=Gyp6BuErDBM" target="_blank">ONE</a><br>
+          <a href="https://www.youtube.com/watch?v=R0eXnoUJ04o" target="_blank">기억해（My Buddy）</a><br>
+          <a href="https://www.youtube.com/watch?v=IWmqWHcA6KY" target="_blank">Me Gustas Tu（Inst.）</a><br></span>
+          <iframe width="280" height="157.5" src="https://www.youtube.com/embed/YYHyAIFG3iI?si=AKBZol334_dPt7WP"
+        style="position: relative; top: -230px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+        </span>
+      </p>
+    <!--  <span style="display: grid; grid-template-columns: 2fr 1fr 1fr;">
+      <img src="image/Kme.jpg"><img src="image/Kme02.jpg"><img src="image/Ksowon.jpg">
+      <img src="image/kyerin.jpg"><img src="image/Kyuju.jpg"><img src="image/Keunha.jpg">
+      <img src="image/Ksinb.jpg"><img src="image/Kumji.jpg"></span>-->
+        </div>
+
+      
+
+      <div id="2016" class="thr-content"><br>
+        <h1 style="width: 300px;">3rd Mini Album</h1>
+        <h3 style="padding-left: 60px;">SNOWFLAKE</h3>
+        <img src="image/mini03.jpg" alt="mini03">
+        <span style="margin-left: 30px; position: relative; top: -65px; ">
+          主打歌：ROUGH（시간을달려서）<br><span style="position: relative; left: 285px; top: -80px; ">
+          收錄曲：<br>
+          <a href="https://www.youtube.com/watch?v=VGZdUfcHngY" target="_blank">Intro（Snowflake）</a><br>
+          <a href="https://www.youtube.com/watch?v=B00xPgeOjwQ" target="_blank">내 이름을 불러줘（Say My Name）</a><br>
+          <a href="https://www.youtube.com/watch?v=oEaVjX0HApM" target="_blank">	사랑별（Luv Star）</a><br>
+          <a href="https://www.youtube.com/watch?v=BQitFgrYQZo" target="_blank">그런 날엔（Someday）</a><br>
+          <a href="https://www.youtube.com/watch?v=2gnKTbLgOCA" target="_blank">TRUST</a><br>
+          <a href="https://www.youtube.com/watch?v=JUnpa-vF7Bg" target="_blank">시간을 달려서 (Inst.)（Rough (Inst.)）</a><br></span>
+          <iframe width="280" height="157.5" src="https://www.youtube.com/embed/0VKcLPdY9lI?si=HShlRS7E_Vc9RXmH"
+        style="position: relative; top: -230px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+        </span>
+        
+        <p style="border-top: dashed #393939 3px;margin-top: -250px;">
+        <h1 style="width: 280px; margin-left: 15px;">1st Full Album </h1>
+        <h3 style="padding-left: 125px;">LOL</h3>
+        <img src="image/full01_1.png" alt="full01">
+        <span style="margin-left: 30px; position: relative; top: -65px; ">
+          主打歌：NAVILLERA（너 그리고 나）<br><span style="position: relative; left: 285px; top: -80px;">
+          收錄曲：<br>
+          <a href="https://www.youtube.com/watch?v=WHF_0oL3kNY" target="_blank">Intro</a><br>
+          <a href="https://www.youtube.com/watch?v=Zp8DVqaO06A" target="_blank">물들어요（FALL IN LOVE）</a><br>
+          <a href="https://www.youtube.com/watch?v=tgobpk80jNo" target="_blank">LOL</a><br>
+          <a href="https://www.youtube.com/watch?v=7RvjWzKHwcU" target="_blank">한 뼘（DISTANCE）</a><br>
+          <a href="https://www.youtube.com/watch?v=eqs_yPoWpaM" target="_blank">물꽃놀이（WATER FLOWER）</a><br>
+          <a href="https://www.youtube.com/watch?v=0fZs5ry89aU" target="_blank">MERMAID</a><br>
+          <a href="https://www.youtube.com/watch?v=f_Nmm_DFu-Q" target="_blank">나의 일기장（SUNSHINE）</a><br>
+          <a href="https://www.youtube.com/watch?v=0N3iR72BdaA" target="_blank">나침반（COMPAS）</a><br>
+          <a href="https://www.youtube.com/watch?v=6MSXRyDdpf0" target="_blank">찰칵（CLICK）</a><br>
+          <a href="https://www.youtube.com/watch?v=-NOnDyCvcXA" target="_blank">바람에 날려（GONE WITH THE WIND）</a><br>
+          <a href="https://www.youtube.com/watch?v=Se8bbsUFjC8" target="_blank">너 그리고 나（NAVILLERA）（Inst.）</a><br></span>
+          <iframe width="280" height="157.5" src="https://www.youtube.com/embed/Se8bbsUFjC8?si=Qc1PXT11-k8J-Et5" 
+        style="position: relative; top: -330px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+        </span>
+        </p>   
+      </div>
+
+      <div id="2017" class="thr-content"><br>
+        <h1 style="width: 300px;">4th Mini Album </h1>
+        <h3 style="padding-left: 35px;">THE AWAKENING</h3>
+        <img src="image/mini04.jpg" alt="mini04">
+        <span style="margin-left: 30px; position: relative; top: -65px; ">
+          主打歌：FINGERTIP<br><span style="position: relative; left: 285px; top: -80px; ">
+          收錄曲：<br>
+          <a href="https://www.youtube.com/watch?v=F3LBWZxaRDM" target="_blank">Hear the Wind Sing（바람의 노래）</a><br>
+          Contrail（비행운:飛行雲）</a><br>
+          Please Save My Earth（나의 지구를 지켜줘）</a><br>
+          Rain In the Spring Time（봄비）</a><br>
+          Crush（핑）</a><br></span>
+          <iframe width="280" height="157.5" src="https://www.youtube.com/embed/hRPrpLSo4To?si=rEXGG30PBs_ceV5m" 
+        style="position: relative; top: -230px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+        </span>
+
+        <p style="border-top: dashed #393939 3px; margin-top: -250px;">
+        <h1 style="width: 300px;">5th Mini Album</h1>
+        <h3 style="padding-left: 85px;"> PARALLEL</h3>
+        <img src="image/mini05.jpg" alt="mini05">
+        <span style="margin-left: 30px; position: relative; top: -65px; ">
+          主打歌：LOVE WHISPER（귀를 기울이면）<br><span style="position: relative; left: 285px; top: -80px; ">
+          收錄曲：<br>
+          <a href="https://www.youtube.com/watch?v=3kg_YeeO7uM" target="_blank">INTRO（BELIEF）</a><br>
+          AVE MARIA（두손을모아）<br>
+          ONE-HALF（이분의일 1/2）<br>
+          LIFE IS A PARTY<br>
+          RED UMBRELLA（빨간우산）<br>
+          FALLING ASLEEP AGAIN（그루잠）<br>
+          LOVE WHISPER（inst.）<br></span>
+          <iframe width="280" height="157.5" src="https://www.youtube.com/embed/iA6zAZ4dYF8?si=4sDZ3lmhFk0s3Qte" 
+        style="position: relative; top: -250px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+        </span></p>
+
+        <p style="border-top: dashed #393939 3px; margin-top: -250px;">
+        <h1 style="width: 300px; text-align: center;">5th Mini Album repackage </h1>
+        <h3 style="padding-left: 85px;">RAINBOW</h3>
+        <img src="image/repackage.png" alt="repackage">
+        <span style="margin-left: 30px; position: relative; top: -65px; ">
+          主打歌：Summer Rain（여름비）<br><span style="position: relative; left: 285px; top: -80px; ">
+            收錄曲：<br>
+            <a href="https://www.youtube.com/watch?v=3kg_YeeO7uM" target="_blank">INTRO（BELIEF）</a><br>
+            RAINBOW<br>
+            AVE MARIA（두손을모아）<br>
+            ONE-HALF（이분의일 1/2）<br>
+            LIFE IS A PARTY<br>
+            RED UMBRELLA（빨간우산）<br>
+            FALLING ASLEEP AGAIN（그루잠）<br>
+            Summer Rain（Inst.）<br></span>
+            <iframe width="280" height="157.5" src="https://www.youtube.com/embed/k7npTim4Xj4?si=F6rE7ROxf-0hl8ZX" 
+          style="position: relative; top: -250px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+          </span></p>
+
+
+      </div>
+
+      <div id="2018" class="thr-content"><br>
+        <h1 style="width: 300px;">6th Mini Album </h1>
+        <h3 style="padding-left: 35px;">TIME FOR THE MOON NIGHT</h3>
+        <img src="image/mini06.jpg" alt="mini06">
+          <span style="margin-left: 30px; position: relative; top: -65px; ">
+            主打歌：Time for the moon night（밤）<br><span style="position: relative; left: 285px; top: -80px; ">
+            收錄曲：<br>
+            <a href="https://www.youtube.com/watch?v=Q3-VQMuhd4c" target="_blank">INTRO（DAYTIME）</a><br>
+            LOVE BUG<br>
+            FLOWER GARDEN（휘리휘리）<br>
+            TIK TIK（틱틱）<br>
+            BYE<br>
+            YOU ARE MY STAR（별）<br>
+            TIME FOR THE MOON NIGHT（밤）（ Inst.）<br></span>
+            <iframe width="280" height="157.5" src="https://www.youtube.com/embed/_XyBa8QsVQU?si=hUju_RqBU4Qua_rJ" 
+          style="position: relative; top: -250px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+          </span>
+
+        <p style="border-top: dashed #393939 3px; margin-top: -250px;">
+        <h1 style="width: 400px;">Summer Mini Album </h1>
+        <h3 style="padding-left: 45px;">SUNNY SUMMER</h3>
+        <img src="image/mini_summer.jpg" alt="minisummer">
+          <span style="margin-left: 30px; position: relative; top: -65px; ">
+            主打歌：Sunny Summer（여름여름해）<br><span style="position: relative; left: 285px; top: -80px; ">
+            收錄曲：<br>
+            Vacation<br>
+            Sweety<br>
+            Windy Windy（바람바람바람）<br>
+            Love In The Air<br></span>
+            <iframe width="280" height="157.5"src="https://www.youtube.com/embed/M9P90QTo_uE?si=0WXBEh8xQSx_Ctsl" 
+          style="position: relative; top: -250px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+          </span></p>
+
+      </div>
+
+      <div id="2019" class="thr-content"><br>
+        <h1 style="width: 280px;">2st Full Album </h1>
+        <h3 style="padding-left: 65px;">TIME FOR US</h3>
+        <img src="image/full02.jpg" alt="full02">
+          <span style="margin-left: 30px; position: relative; top: -65px; ">
+            主打歌：Sunrise（해야）<br><span style="position: relative; left: 285px; top: -80px; ">
+            收錄曲：<br>
+            You are not alone<br>
+            L.U.V.（기적을 넘어）<br>
+            GLOW（만화경）<br>
+            Our Secret（비밀 이야기）<br>
+            Only 1<br>
+            Truly Love<br>
+            Show Up（보호색）<br>
+            It's You（겨울, 끝）<br>
+            A Starry Sky<br>
+            Love Oh Love<br>
+            Memoria（Korean Ver.）<br>
+            GLOW（만화경）<br>
+            Sunrise（Inst.）<br></span>
+            <iframe width="280" height="157.5" src="https://www.youtube.com/embed/iciFwCnsyY4?si=zqMwsBagNjjpjHxL" 
+          style="position: relative; top: -450px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+          </span>
+
+        <p style="border-top: dashed #393939 3px;  margin-top: -250px;">
+        <h1 style="width: 300px;">7th Mini Album </h1>
+        <h3 style="padding-left: 110px;">FEVER</h3>
+        <img src="image/mini07.png" alt="mini07">
+          <span style="margin-left: 30px; position: relative; top: -65px; ">
+            主打歌：Fever（열대야）<br><span style="position: relative; left: 285px; top: -80px; ">
+            收錄曲：<br>
+            Mr. Blue<br>
+            Smile（좋은 말 할 때）<br>
+            Wish（바라）<br>
+            Paradise<br>
+            Hope（기대）<br>
+            FLOWER（Korean Ver.）<br>
+            Fever（Inst.）<br></span>
+            <iframe width="280" height="157.5" src="https://www.youtube.com/embed/Zll7O1v63aY?si=pqyXlQ5BltlEA7Ht" 
+          style="position: relative; top: -270px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+          </span></p>
+
+      </div>
+
+      <div id="2020" class="thr-content"><br>
+        <h1 style="width: 300px;">8th Mini Album</h1>
+        <h3 style="padding-left: 60px;"> 回:LABYRINTH</h3>
+        <img src="image/mini08.jpg" alt="mini08">
+                  <span style="margin-left: 30px; position: relative; top: -65px; ">
+                    主打歌：Crossroads（교차로）
+                    Labyrinth<br><span style="position: relative; left: 285px; top: -80px; ">
+                    收錄曲：<br>
+                    Here We Are<br>
+                    Eclipse（지금 만나러 갑니다）<br>
+                    Dreamcatcher<br>
+                    From Me<br></span>
+                    <iframe width="280" height="157.5" src="https://www.youtube.com/embed/kx5TWKPE5sU?si=zxg51w7fnCYwseEd" 
+                  style="position: relative; top: -270px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+
+                  <iframe width="280" height="157.5" src="https://www.youtube.com/embed/LH0fh-JHQe0?si=QZ1W443c_gROHiBd" 
+                  style="position: relative; top: -100px; left: 465px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+                  </span>
+
+        <p style="border-top: dashed #393939 3px; margin-top: -150px;">
+        <h1 style="width: 300px;">8th Mini Album</h1>
+        <h3 style="padding-left: 60px;"> 回:SONGS OF THE SIRENS</h3>
+        <img src="image/mini09.png" alt="mini09">
+          <span style="margin-left: 30px; position: relative; top: -65px; ">
+            主打歌：Apple<br><span style="position: relative; left: 285px; top: -80px; ">
+            收錄曲：<br>
+            Eye of the Storm（눈의 시간）<br>
+            Room of Mirrors（거울의 방 ）<br>
+            Tarot Cards<br>
+            Crème Brûlée<br>
+          	Stairs in the North（북쪽 계단）<br></span>
+            <iframe width="280" height="157.5"src="https://www.youtube.com/embed/XQSse3b2ge4?si=zN22eFB5PAnZ8F1G" 
+          style="position: relative; top: -270px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+          </span></p>
+
+        <p style="border-top: dashed #393939 3px; margin-top: -250px;"></p>
+        <h1 style="width: 280px;">3rd Full Album </h1>
+        <h3 style="padding-left: 60px;">回:WALPURGIS NIGHT</h3>
+        <img src="image/full03.jpg" alt="full03">
+          <span style="margin-left: 30px; position: relative; top: -65px; ">
+            主打歌：Mago<br><span style="position: relative; left: 285px; top: -80px; ">
+            收錄曲：<br>
+            Love Spell<br>
+            Three of Cups<br>
+            GRWM<br>
+            Secret Diary<br>
+          	Better Me<br>
+            Night Drive<br>
+            Apple<br>
+            Crossroads（교차로）<br>
+            Labyrinth<br>
+            Wheel of the Year（앞면의 뒷면의 뒷면）<br></span>
+            <iframe width="280" height="157.5" src="https://www.youtube.com/embed/LmBYPXGqtss?si=vJeJkzTMUGne7SS5" 
+          style="position: relative; top: -370px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+        </span></p>
+      </div>
+
+    </div>
+      </div>
+    </div>
+
+    <!--日文專輯-->
+    <div id="twet" class="content">
+      <div class="jalbum">
+        <h1>2018</h1>
+        <h2 style="margin-left: 50px; width: 470px; font-weight: bolder;">1st Japan Complication Album</h2>
+        <h3 style="padding-left: 80px; ">GFRIEND 1st BEST</h3>
+        <img src="image/jdebut.jpg" alt="jdebut">
+        <span style="margin-left: 30px; position: relative; top: -65px; ">
+          主打歌：今日から私たちは（Me Gustas Tu） JP ver.<br><span style="position: relative; left: 300px; top: -80px;">
+          收錄曲：<br>
+          Glass Bead JP ver.<br>
+          トキヲコエテ（ROUGH） JP ver.<br>
+          NAVILLERA JP ver.<br>
+          LOVE WHISPER JP ver.<br>
+          TRUST JP ver.<br>
+          Glass Bead <br>
+          Me Gustas Tu <br>
+          ROUGH<br>
+          NAVILLERA <br>
+          LOVE WHISPER <br>
+          TRUST </span>
+        </span>
+
+        <p style="border-top: dashed #393939 3px; margin-top: -100px;">
+          <h2 style="margin-left: 50px; width: 360px; font-weight: bolder;">1st Japan Single Album</h2>
+          <h3 style="padding-left: 80px; ">MEMORIA/夜</h3>
+          <img src="image/j01single.jpg" alt="jsingle01">
+          <span style="margin-left: 30px;position: relative; top: -50px;">
+            主打歌：	Memoria<br><span style="position: relative; left: 300px; top: -70px;">
+            收錄曲：<br>
+            夜 （Time for the moon night）JP ver.<br>
+            Memoria（Instrumental）<br>
+            夜 （Time for the moonlight）<br></span>            
+          </span>
+          <iframe width="280" height="157.5" src="https://www.youtube.com/embed/YTWwz6R6jy0?si=9pyPpC8FNcVgZpVF" 
+          style="position: relative; top: -270px; left: 750px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+        </p>
+
+      </div>
+    </div>
+
+    <div id="tynt" class="content">
+      <div class="jalbum">
+        <h1>2019</h1>
+        <h2 style="margin-left: 50px; width: 375px; font-weight: bolder;">2nd Japan Single Album</h2>
+        <h3 style="padding-left: 110px; ">SUNRISE</h3>
+        <img src="image/j02single.jpg" alt="jsingle02">
+        <span style="margin-left: 30px; position: relative; top: -65px; ">
+          主打歌：SUNRISE<br><span style="position: relative; left: 300px; top: -80px;">
+          收錄曲：<br>
+          La pam pam<br>
+          SUNRISE JP Ver.(Instrumental)<br>
+          La pam pam(Instrumental)
+          </span>
+        </span>
+
+        <p style="border-top: dashed #393939 3px; margin-top: -80px;">
+          <h2 style="margin-left: 50px; width: 370px; font-weight: bolder;">3rd Japan Single Album</h2>
+          <h3 style="padding-left: 110px; ">FLOWER</h3>
+          <img src="image/j03single.jpg" alt="jsingle03">
+          <span style="margin-left: 30px;position: relative; top: -50px;">
+            主打歌：FLOWER<br><span style="position: relative; left: 300px; top: -70px;">
+            收錄曲：<br>
+            Beautiful<br>
+            FLOWER(Inst.)<br>
+            Beautiful (Inst.)<br></span>            
+          </span>
+          <iframe width="280" height="157.5" src="https://www.youtube.com/embed/gMHP8ZXvuMM?si=g9DMJLYv5cp3Oomp" 
+          style="position: relative; top: -270px; left: 650px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+        </p>
+
+        
+        <p style="border-top: dashed #393939 3px; margin-top: -200px;">
+          <h2 style="margin-left: 50px; width: 320px; font-weight: bolder;">1st  Japan Full Album</h2>
+          <h3 style="padding-left: 80px; ">FALLIN’ LIGHT</h3>
+          <img src="image/j01full.jpg" alt="jfull01">
+          <span style="margin-left: 30px;position: relative; top: -50px;">
+            主打歌：Fallin' Light（天使の梯子）<br><span style="position: relative; left: 300px; top: -70px;">
+            收錄曲：<br>
+            Emotional Days<br>
+            Memoria<br>
+            戀の始まり<br>
+            FLOWER<br>
+            My My My!<br>
+            夜（Time for the moon night）JP ver.<br>
+            SUNRISE JP ver.<br>
+            Lam pam pam<br>
+            Beautiful<br>
+            My Buddy JP Ver.<br></span>            
+          </span>
+          <iframe width="280" height="157.5" src="https://www.youtube.com/embed/mc274HUFhQQ?si=JIp7tws3j0z1pfUn" 
+          style="position: relative; top: -370px; left: 650px; border-radius: 30px 15px; border: #393939 3px double;" ></iframe>
+        </p>
+      </div>
+    </div>
+
+    <div id="tyty" class="content">
+      <div class="jalbum">
+        <h1>2020</h1>
+        <h2 style="margin-left: 50px; width: 370px; font-weight: bolder;">4th Japan Single Album</h2>
+        <h3 style="padding-left: 75px; ">回:LABYRINTH</h3>
+        <img src="image/j04single.png" alt="jsingle04">
+        <span style="margin-left: 30px; position: relative; top: -10px;">
+          Crossroads JP ver.<br> <span style="margin-left: 300px; position: relative; top: -90px; ">
+          Labyrinth JP ver.</span>
+        </span>
+
+        <p style="border-top: dashed #393939 3px; ">
+          <h2 style="margin-left: 50px; width: 370px; font-weight: bolder;">5th  Japan Single Album</h2> 
+          <h3 style="padding-left: 75px; ">回:SONGS OF THE SIRENS</h3>
+          <img src="image/j05single.jpg" alt="jsingle05">
+          <span style="margin-left: 30px; position: relative; top: -10px;">
+            Apple JP ver.<br> <span style="margin-left: 300px; position: relative; top: -90px; ">
+            Tarot Cards JP ver.</span>
+          </span>
+        </p>
+      </div>
+    </div>
+   
+</main>
+
+<footer>
+  <div>
+    <a href="#members" onclick="switchContent('members')">Members</a>
+  </div>
+
+  <div>
+    <a href="#about" onclick="switchContent('about')">About</a>
+  </div>
+    <div>
+    Album
+    <div class="album">
+      <a href="#korean-albums" onclick="switchContent('korean-albums')">韓文專輯</a>
+      </span>
+      <span>
+        <span style="margin-left: 30px ;display: grid;">
+        日文專輯
+        <a href="#2018" onclick="switchContent('twet')">2018</a>
+        <a href="#2019" onclick="switchContent('tynt')">2019</a>
+        <a href="#2020" onclick="switchContent('tyty')">2020</a>
+      </span>
+    </div>
+  </div>
+
+<span style="border-top: #393939 3px solid;  border-bottom: #393939 3px solid; 
+position: relative;  width: 300px;">
+  <span  class="link" style="margin-left: 170px;  ">
+    <a href="https://www.youtube.com/channel/UCRDd3x33kfF0IW6g2MRUkRw" target="_blank" style="position: relative;
+    top: 30px; right: 120px;">
+    <img src="image/youtube.png" width="23px"></a>
+    <a href="https://www.instagram.com/gfriendofficial/" target="_blank" style="position: relative;
+    top: 30px; right: 100px;">
+    <img src="image/insta.png" width="20px"></a>
+    <a href="https://www.facebook.com/gfrdofficial/" target="_blank" style="position: relative;
+    top: 30px; right: 80px;">
+    <img src="image/fb.png" width="20px"></a>
+    <a href="https://x.com/gfrdofficial?mx=2" target="_blank" style="position: relative;
+    top: 30px; right: 60px;">
+    <img src="image/x.png" width="20px"></a>
+  </span>
+ <span style="position: relative; top: 60px; right: 10px;">&copyGFRIEND</span>
+</span>
+<!--
+<span style="border-bottom: #393939 3px solid; position: relative; top: -37px; right:432px; width: 300px;">
+
+</span>-->
+</footer>
+
+</body>
+</html>
